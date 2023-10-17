@@ -5,6 +5,7 @@ import { useItems } from "../contexts/ItemsContext";
 import { Link } from "react-router-dom";
 import Item from "../components/Item";
 import Loading from "../components/Loading";
+import ScrollToTop from "../components/ScrollToTop";
 
 export default function Jewelery() {
   const { jewelery, isLoading } = useItems();
@@ -13,6 +14,7 @@ export default function Jewelery() {
   return (
     <>
       <Header />
+      <ScrollToTop />
       <div className="categories-title">
         <p>JEWELERY</p>
       </div>
@@ -21,7 +23,7 @@ export default function Jewelery() {
           <Link
             key={item.id}
             to={{
-              pathname: `${item.id}`,
+              pathname: `/products/${item.id}`,
               search: `?title=${encodeURIComponent(item.title)}`,
             }}
           >

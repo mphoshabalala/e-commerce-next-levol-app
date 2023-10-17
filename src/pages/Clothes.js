@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Item from "../components/Item";
 import Footer from "../components/Footer";
 import Loading from "../components/Loading";
+import ScrollToTop from "../components/ScrollToTop";
 
 export default function Clothes() {
   const { allClothes, isLoading } = useItems();
@@ -13,6 +14,7 @@ export default function Clothes() {
   return (
     <>
       <Header />
+      <ScrollToTop />
       <div className="categories-title">
         <p>ALL CLOTHES</p>
       </div>
@@ -21,7 +23,7 @@ export default function Clothes() {
           <Link
             key={item.id}
             to={{
-              pathname: `${item.id}`,
+              pathname: `/products/${item.id}`,
               search: `?title=${encodeURIComponent(item.title)}`,
             }}
           >

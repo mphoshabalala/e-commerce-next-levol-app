@@ -11,6 +11,7 @@ import AllProducts from "./pages/AllProducts";
 import Login from "./pages/Login";
 import CreateAccount from "./pages/CreateAccount";
 import RecoverAccount from "./pages/RecoverAccount";
+import ProductDetails from "./pages/ProductDetails";
 // import { SmoothnessProvider } from "./contexts/SmoothnessContext";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<Homepage />} />
+          <Route path="/products/:id" element={<ProductDetails />}></Route>
           <Route path="/collection/men" element={<MenClothes />}></Route>
           <Route
             path="/collection/electronics"

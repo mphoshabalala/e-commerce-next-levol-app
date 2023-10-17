@@ -10,11 +10,11 @@ export default function Clotheslist() {
         <p>NEW ARRIVALS</p>
       </div>
       <div className="list-items">
-        {items.map((item) => (
+        {items.slice(0, 8).map((item) => (
           <Link
             key={item.id}
             to={{
-              pathname: `${item.id}`,
+              pathname: `/products/${item.id}`,
               search: `?title=${encodeURIComponent(item.title)}`,
             }}
           >

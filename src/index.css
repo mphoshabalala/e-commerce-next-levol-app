@@ -4,6 +4,7 @@
 }
 
 body {
+  scroll-behavior: auto;
   width: 100vw;
   padding: 0; /* Reset padding */
   margin: 0; /* Reset margins */
@@ -125,6 +126,7 @@ li {
   align-items: center;
   justify-content: center;
   color: rgb(29, 30, 32);
+  background-attachment: fixed;
 }
 
 .hero > h1 {
@@ -205,6 +207,7 @@ li {
 
 .accesories-button {
   background-color: #ffffff;
+  color: #000000;
   font-size: 0.9rem;
   padding: 1rem 2.5rem;
   border-radius: 0.2rem;
@@ -408,4 +411,94 @@ li {
 
 .main-login > form {
   font-size: 0.9rem;
+}
+
+/* item details */
+
+.detailed-item {
+  display: flex;
+  min-height: 100vh;
+  margin-top: 5.5rem;
+}
+
+.item-images {
+  width: 66%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.item-images > img {
+  width: 98%;
+  margin: 0.3rem 0rem 0rem 0;
+}
+
+.detailed-item-title {
+  font-size: 1.5rem;
+  margin-right: auto;
+}
+
+.details {
+  width: 33%;
+  padding: 0 1rem;
+}
+
+.detailed-item-size {
+  color: #7c7c7c;
+}
+
+.sizes-list > ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.sizes-list > ul > li {
+  border: 1px solid #000000;
+  margin-right: 0.5rem;
+  width: 20%;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 0.2rem;
+  transition: ease-in 0.3s;
+}
+
+.sizes-list > ul > li:hover,
+.sizes-list > ul > .active {
+  color: #fff;
+  background-color: #000000;
+  transition: ease-out 0.3s;
+}
+
+.add-to-cart {
+  width: 98%;
+  color: #fff;
+  background-color: #000000;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  border-radius: 0.3rem;
+  transform: ease-in 0.3s;
+  border: #000000 solid 1px;
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+}
+
+.add-to-cart:hover {
+  background-color: #fff;
+  color: #000000;
+  transition: ease-out 0.3s;
+}
+
+.details-button {
+  border: none;
+  background-color: #fff;
+  color: #6e6e6e;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.details-button:hover {
+  text-decoration: underline;
 }

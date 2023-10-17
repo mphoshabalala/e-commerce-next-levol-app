@@ -16,9 +16,7 @@ export default function Header() {
     }
 
     window.addEventListener("scroll", handleScroll);
-
     return () => {
-      // Clean up the event listener when the component unmounts.
       window.removeEventListener("scroll", handleScroll);
     };
   }, [previousScrollPosition]);
