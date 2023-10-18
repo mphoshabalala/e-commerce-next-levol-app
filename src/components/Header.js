@@ -14,13 +14,13 @@ export default function Header() {
   // to be fixed
   useEffect(
     () => {
-      window.addEventListener("click", (e) => {
-        if (e.target.className === "cart") {
-          setCartOpen(true);
-        } else {
-          setCartOpen(false);
-        }
-      });
+      // window.addEventListener("click", (e) => {
+      //   if (e.target.className === "cart") {
+      //     setCartOpen(true);
+      //   } else {
+      //     setCartOpen(false);
+      //   }
+      // });
       function handleScroll() {
         const newScrollPosition = window.scrollY;
         if (newScrollPosition > previousScrollPosition) {
