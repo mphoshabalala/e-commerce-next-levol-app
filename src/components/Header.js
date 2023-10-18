@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Cart from "./Cart";
 import { useCart } from "../contexts/CartContext";
@@ -7,22 +7,39 @@ export default function Header() {
   const [previousScrollPosition, setPreviousScrollPosition] = useState(-100);
   const [isScrollingDown, setIsScrollingDown] = useState(false);
   const { cartOpen, setCartOpen } = useCart();
-  useEffect(() => {
-    function handleScroll() {
-      const newScrollPosition = window.scrollY;
-      if (newScrollPosition > previousScrollPosition) {
-        setIsScrollingDown(true);
-      } else {
-        setIsScrollingDown(false);
-      }
-      setPreviousScrollPosition(newScrollPosition);
-    }
+  const cartContainerRef = useRef(null);
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [previousScrollPosition]);
+  useEffect(() => {});
+
+  // to be fixed
+  useEffect(
+    () => {
+      window.addEventListener("click", (e) => {
+        if (e.target.className === "cart") {
+          setCartOpen(true);
+        } else {
+          setCartOpen(false);
+        }
+      });
+      function handleScroll() {
+        const newScrollPosition = window.scrollY;
+        if (newScrollPosition > previousScrollPosition) {
+          setIsScrollingDown(true);
+        } else {
+          setIsScrollingDown(false);
+        }
+        setPreviousScrollPosition(newScrollPosition);
+      }
+
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    },
+
+    // listen to scroll and close cart
+    [previousScrollPosition]
+  );
 
   const headerStyle = {
     transition: "  top 0.3s ease-in-out", // Smoothly transition max-height
@@ -95,7 +112,12 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <a href="#bag" onClick={() => setCartOpen((prev) => !prev)}>
+                <a
+                  className="cart"
+                  ref={cartContainerRef}
+                  href="#bag"
+                  onClick={() => setCartOpen((prev) => !prev)}
+                >
                   <ul className="bag">
                     <li>BAG</li>
                     <li>

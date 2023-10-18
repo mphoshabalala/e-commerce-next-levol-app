@@ -591,3 +591,9 @@ li {
   color: #464646;
   padding: 0 1rem;
 }
+
+.cart-item-prices {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

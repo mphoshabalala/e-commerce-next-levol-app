@@ -24,13 +24,14 @@ export function CartProvider({ children }) {
     }
   }
 
-  function deleteItemInCart(item) {
+  function deleteItemFromCart(item) {
     const updatedCartItems = cartItems.filter(
-      (cartItem) => cartItem.id === item.id
+      (cartItem) => cartItem.id !== item.id
     );
     setCartItems(updatedCartItems);
-    localStorage.setItem("item", JSON.stringify(updatedCartItems));
+    localStorage.setItem("addedToCart", JSON.stringify(updatedCartItems));
 
+    // check if theres item that is currently open, and if it is in cart
     if (currentItem && currentItem.id === item.id) {
       setIsInCart(false);
     }
@@ -60,7 +61,7 @@ export function CartProvider({ children }) {
       value={{
         checkIfIsInCart,
         cartItems,
-        deleteItemInCart,
+        deleteItemFromCart,
         handleAddToCart,
         cartItemsCount,
         isInCart,
