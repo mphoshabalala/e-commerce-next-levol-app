@@ -7,8 +7,10 @@ import Footer from "../components/Footer";
 import image from "../images/jersey.jpeg";
 import Item from "../components/Item";
 import ScrollToTop from "../components/ScrollToTop";
+import { useCart } from "../contexts/CartContext";
 
 export default function ProductDetails() {
+  const { handleAddToCart } = useCart();
   const location = useLocation();
   const [showDetails, setShowDetails] = useState(false);
   const itemId = location.pathname.split("/").pop();
@@ -35,6 +37,7 @@ export default function ProductDetails() {
   function filterItems(itemList) {
     return itemList.slice(0, 4); // Slice the first four items
   }
+
   if (isLoading) return <Loading />;
   return (
     <>
@@ -53,9 +56,12 @@ export default function ProductDetails() {
             <p className="detailed-item-price">
               R{(currentItem.price - currentItem.price * (20 / 100)).toFixed(2)}
             </p>
-            <a className="add-to-cart" href="#1">
+            <button
+              className="add-to-cart"
+              onClick={() => handleAddToCart(currentItem)}
+            >
               ADD TO CART
-            </a>
+            </button>
             {showDetails ? (
               <div className="specs">
                 {currentItem.description}
@@ -97,9 +103,12 @@ export default function ProductDetails() {
                 <li>L</li>
                 <li>XL</li>
               </ul>
-              <a className="add-to-cart" href="#1">
+              <button
+                className="add-to-cart"
+                onClick={() => handleAddToCart(currentItem)}
+              >
                 ADD TO CART
-              </a>
+              </button>
             </div>
             {showDetails ? (
               <div className="specs">
@@ -133,9 +142,12 @@ export default function ProductDetails() {
             <p className="detailed-item-price">
               R{(currentItem.price - currentItem.price * (20 / 100)).toFixed(2)}
             </p>
-            <a className="add-to-cart" href="#1">
+            <button
+              className="add-to-cart"
+              onClick={() => handleAddToCart(currentItem)}
+            >
               ADD TO CART
-            </a>
+            </button>
             {showDetails ? (
               <div className="specs">
                 {currentItem.description}

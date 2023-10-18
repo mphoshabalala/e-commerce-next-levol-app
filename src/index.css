@@ -12,6 +12,7 @@ body {
   font-family: "Open Sans", sans-serif;
   color: var(--main-color);
   overflow-x: hidden;
+  position: relative;
 }
 
 ::selection {
@@ -481,8 +482,9 @@ li {
   border-radius: 0.3rem;
   transform: ease-in 0.3s;
   border: #000000 solid 1px;
-  margin-top: 1rem;
+  margin: 1rem 0;
   margin-right: 0.5rem;
+  cursor: pointer;
 }
 
 .add-to-cart:hover {
@@ -501,4 +503,91 @@ li {
 
 .details-button:hover {
   text-decoration: underline;
+}
+
+/* cart */
+.cart-container {
+  height: 100vh;
+  /* background-color: #000000; */
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  padding: 0;
+}
+
+.cart-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.main-cart {
+  width: 35%;
+  height: 100%;
+  background-color: #fff;
+  margin-left: auto;
+  display: block;
+  top: 0;
+  overflow-y: scroll;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  padding: 0 1.5rem;
+}
+
+.cart-close {
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.cart-item-image {
+  height: 10rem;
+  width: 7rem;
+}
+
+.cart-item {
+  display: flex;
+  border-bottom: 1px solid #000;
+  justify-content: space-between;
+  margin: 0 1rem;
+  padding: 1rem 0;
+}
+
+.cart-item-details {
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.quantity {
+  background-color: #d8d8d8;
+  width: fit-content;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adjust-quantity {
+  border: none;
+  background-color: #d8d8d8;
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: #464646;
+  padding: 0 1rem;
 }
