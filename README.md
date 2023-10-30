@@ -1,70 +1,107 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Shopping List App
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+This is a simple shopping list application built using React. It allows users to add items to their shopping list, set a budget, and track the total cost of items in their list. Additionally, users can mark items as purchased or unpurchased, and the application will calculate the current cost based on their selections.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Add items to the shopping list with a name and price.
+- Set a budget to track your spending.
+- Mark items as purchased or unpurchased with a click.
+- Automatically calculate the total price of all items in the list.
+- Display the current cost based on purchased items.
+- Display the budget and remaining budget after making purchases.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+To get started with the Shopping List App, follow these steps:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone this repository to your local machine:
 
-### `npm run build`
+   ```shell
+   git clone https://github.com/your-username/shopping-list-app.git
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Navigate to the project directory:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```shell
+   cd shopping-list-app
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Install the required dependencies:
 
-### `npm run eject`
+   ```shell
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. Start the development server:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```shell
+   npm start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. Open your web browser and access the app at [http://localhost:3000](http://localhost:3000).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Usage
 
-## Learn More
+### Adding Items
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- To add an item to your shopping list, use the "Add to list🛒" form.
+- Enter the item name and its price, then click the "Add to list🛒" button.
+- The item will be added to your shopping list with a default "unpurchased" status.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Setting a Budget
 
-### Code Splitting
+- You can set a budget by entering a numeric value in the "Budget" input field and clicking the "Set budget💵" button.
+- The budget will be displayed in the "My Budget" field, prefixed with "R" (for example, "R100.00").
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Managing Items
 
-### Analyzing the Bundle Size
+- In the shopping list table, you'll see the names, prices, and "Purchased" status of each item.
+- To mark an item as purchased or unpurchased, click the "✅" or "❌" icon in the "Purchased" column.
+- The "Current Cost" field will update to reflect the cost of purchased items.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Viewing Total Price
 
-### Making a Progressive Web App
+- The "Total Price" field displays the total price of all items in your shopping list, regardless of their purchased status.
+- The total price is displayed with "R" as a prefix (for example, "R250.00").
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contributing
 
-### Advanced Configuration
+If you'd like to contribute to this project, please follow these guidelines:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Fork the repository on GitHub.
 
-### Deployment
+2. Clone your forked repository to your local machine.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+3. Create a new branch for your changes:
 
-### `npm run build` fails to minify
+   ```shell
+   git checkout -b feature/my-feature
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4. Make your changes and commit them with descriptive commit messages:
+
+   ```shell
+   git commit -m "Add new feature: my feature"
+   ```
+
+5. Push your changes to your GitHub repository:
+
+   ```shell
+   git push origin feature/my-feature
+   ```
+
+6. Create a pull request from your branch to the original repository's `main` branch.
+
+7. Describe your changes and submit the pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+Feel free to customize this README to include any additional information or specific instructions for your project.
