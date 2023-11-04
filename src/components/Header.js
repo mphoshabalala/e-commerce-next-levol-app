@@ -2,25 +2,20 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Cart from "./Cart";
 import { useCart } from "../contexts/CartContext";
+import menubar from "../images/menu.png";
+import Menu from "./Menu";
+
 export default function Header() {
-  // const [currentScrollPosition, setCurrentScrollPosition] = useState(0);
   const [previousScrollPosition, setPreviousScrollPosition] = useState(-100);
-  const [isScrollingDown, setIsScrollingDown] = useState(false);
+  const [isScrollingDown, setIsScrollingDown] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cartOpen, setCartOpen } = useCart();
   const cartContainerRef = useRef(null);
 
   useEffect(() => {});
 
-  // to be fixed
   useEffect(
     () => {
-      // window.addEventListener("click", (e) => {
-      //   if (e.target.className === "cart") {
-      //     setCartOpen(true);
-      //   } else {
-      //     setCartOpen(false);
-      //   }
-      // });
       function handleScroll() {
         const newScrollPosition = window.scrollY;
         if (newScrollPosition > previousScrollPosition) {
@@ -49,6 +44,11 @@ export default function Header() {
     <>
       <header className="main-header" style={headerStyle}>
         <div className="header-container">
+          <li id="menubar">
+            <a onClick={() => setIsMenuOpen((prev) => !prev)} href="#1">
+              <img src={menubar} alt="" />
+            </a>
+          </li>
           <div className="categories-and-logo">
             <h1 className="logo">
               <Link
@@ -102,7 +102,7 @@ export default function Header() {
           </div>
           <div className="account-and-bag">
             <ul>
-              <li>
+              <li id="account">
                 <Link
                   to={{
                     pathname: `/account/login`,
@@ -142,6 +142,8 @@ export default function Header() {
         </div>
       </header>
       {cartOpen && <Cart />}
+
+      {isMenuOpen && <Menu setIsMenuOpen={setIsMenuOpen} />}
     </>
   );
 }
